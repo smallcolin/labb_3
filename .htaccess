@@ -1,0 +1,7 @@
+ReWriteEngine on
+ReWriteCond %{REQUEST_FILENAME} -s [OR]
+ReWriteCond %{REQUEST_FILENAME} -l [OR]
+ReWriteCond %{REQUEST_FILENAME} -d
+ReWriteRule ^.*$ - [NC,L]
+
+ReWriteRule ^(.*) "/03_Webbutveckling_med_HTML5/Labbs/labb_3_colin_sweeney/" [NC,L]

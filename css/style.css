@@ -1,0 +1,101 @@
+body {
+	background-color: gainsboro;
+	/*background-image: url('../img/beach.jpg');*/
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+	font-family: 'Varela Round', sans-serif;
+}
+
+p {
+	margin: 20px 0;
+}
+
+hr {
+	border: 1px solid black;
+}
+
+label {
+	cursor: pointer;
+}
+
+img {
+	margin-bottom: 30px;
+}
+
+#header {
+	background: #4ECDC4; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #4ECDC4 , #556270); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #4ECDC4 , #556270); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+}
+
+#wrapper {
+	margin-top: 40px;
+}
+
+.box {
+	background-color: #eee;
+	border: 1px solid black;
+	min-height: 20px;
+	margin: 20px;
+	padding: 30px;
+}
+
+.btn {
+	margin: 10px 0;
+}
+
+.active {
+	font-weight: bold;
+	/*font-size: 20px;*/
+	text-transform: uppercase;
+}
+
+ul {
+	display: inline-block;
+}
+	ul li {
+		float: left;
+	}
+
+.aligncenter {
+	text-align: center;
+	margin: 0 auto;
+}
+
+table.city {
+	background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+	border: 4px solid white;
+	margin: 30px auto;
+}
+	table.city th {
+		text-align: center;
+		padding: 20px 0 10px;
+		font-weight: bolder;
+	}
+		table.city td {
+			padding: 10px 40px;
+		}
+
+#doughnut {
+	margin: 20% auto;
+}
+
+.ng-pristine {
+	background-color: lightgrey;
+}
+
+.output {
+	background: #2C3E50;
+	background: -webkit-linear-gradient(to left, #2C3E50 , #FD746C); 
+	background: linear-gradient(to left, #2C3E50 , #FD746C);
+	color: white;
+}
+	.output input {
+		color: black;
+	}
+
+
+

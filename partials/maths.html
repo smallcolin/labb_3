@@ -1,0 +1,40 @@
+
+
+<div class="container">
+	<div class="row">
+
+		<div class="col-xs-12 col-sm-9 col-sm-offset-1">
+			<div class="box output">
+				
+				<h4>Some Maths…</h4>
+				<h5>Basic Addition</h5>
+				<p>What is the total value of 10 + 20 + 30?</p>
+				<div ng-controller="FourController"><h3>{{fourNumber.value}}</h3></div>
+				
+			</div>
+			<div class="box output">
+				
+					<h4>How about a really simple calculator?</h4>
+					<div ng-controller="Calculator">
+						<p>Enter your first number:</p>
+						<p><input type="number" ng-model="first"></p>
+						
+						<p>Enter your second number:</p>
+						<p><input type="number" ng-model="second"></p>
+						
+						<p>Choose your operator:</p>
+						<select ng-model="operator">
+							<option>+</option>
+							<option>-</option>
+							<option>*</option>
+							<option>/</option>
+						</select>
+						<p>= <h3>{{output()}}</h3></p>
+					</div>
+			
+			</div>
+
+		</div>
+
+	</div>
+</div>
