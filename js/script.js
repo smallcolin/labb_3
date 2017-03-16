@@ -1,106 +1,103 @@
 	
 var app = angular.module('Labb3', ['ui.router', 'chart.js']);
 
-app.config(function ($stateProvider, $locationProvider) {
-	
-	$locationProvider.html5Mode(true);
+	app.config(function ($stateProvider, $locationProvider) {
+		
+		$locationProvider.html5Mode(true);
 
-	$stateProvider.state( {
-		name: 'maths',
-		url: '/maths',
-		templateUrl: 'partials/maths.html'
+		$stateProvider.state( {
+			name: 'maths',
+			url: '/maths',
+			templateUrl: 'partials/maths.html'
+		});
+
+		$stateProvider.state( {
+			name: 'basic',
+			url: '/basic',
+			templateUrl: 'partials/basic.html',
+			controller: 'First'
+		});
+
 	});
 
-	$stateProvider.state( {
-		name: 'basic',
-		url: '/basic',
-		templateUrl: 'partials/basic.html',
-		controller: 'First'
-	});
-
-});
-
-app.controller('First', function($rootScope) {
-	$rootScope.name = "Colin";
-	$rootScope.age = "37";
-	$rootScope.avatar = 'img/moody.jpg';
-})
+	app.controller('First', function($rootScope) {
+		$rootScope.name = "Colin";
+		$rootScope.age = "37";
+		$rootScope.avatar = 'img/moody.jpg';
+	})
 
 
 
 // CITIES SECTION
 
-app.controller('Joncit', function ($rootScope, cities) {
-    $rootScope.cities = cities.data.items;
-});
+	// GET
 
-app.controller('popName', function($scope) {
-});
+	app.controller('Joncit', function ($rootScope, cities) {
+	    $rootScope.cities = cities.data.items;
+	});
 
-app.config(function ($stateProvider) {
-    $stateProvider.state('cities', {
-        controller: 'Joncit',
-        resolve: {
-            cities: function ($http) {
-                return $http({
-                    method: 'GET',
-                    url: 'http://cities.jonkri.se/0.0.0/cities'
-                });
-            }
-        },
-        templateUrl: 'partials/jon-cities.html',
-        url: '/cities'
-    });
-});
+	app.controller('popName', function($scope) {
+	});
 
-// ____________________________________________________________________________________________________
+	app.config(function ($stateProvider) {
+	    $stateProvider.state('cities', {
+	        controller: 'Joncit',
+	        resolve: {
+	            cities: function ($http) {
+	                return $http({
+	                    method: 'GET',
+	                    url: 'http://cities.jonkri.se/0.0.0/cities'
+	                });
+	            }
+	        },
+	        templateUrl: 'partials/jon-cities.html',
+	        url: '/cities'
+	    }).state('addCities', {
+			controller: 'AddCity',
+			resolve: {
+				addCities: function ($http) {
+					console.log(1);
+					return undefined;
+				
+				},
+				url: '/addCity'
+			}
+		});
+	});
 
+	// POST
 
-app.controller('AddCity', function($scope, $rootScope, $http) {
-	$scope.sendData = function () {
-		
-		// console.log($scope.cityName);
-		// console.log($scope.popNumber);
-		$scope.cities.push($scope.cityName);
-		$scope.cities.push($scope.popNumber);
-		
-	}
+	app.controller('AddCity', function($scope, $rootScope, $http) {
+		$scope.sendData = function () {
+			$http({
+					method: 'POST',
+					url: 'http://cities.jonkri.se/0.0.0/cities',
+					data: { name: $scope.cityName, population: $scope.popNumber }
+				}).then(function (response) {
+
+						$rootScope.cities.splice(0, $rootScope.cities.length);
+
+						for ( var i = 0; i < response.data.length; i++ ) {
+							$rootScope.cities.push(response.data[i]);
+						}
+				});
+			};
+	});
 	
-});
+	
 
-// app.config(function ($stateProvider) {
-// 	$stateProvider.state('addCities', {
-// 		controller: 'AddCity',
-// 		resolve: {
-// 			addCities: function ($http) {
-// 				return $http({
-// 					method: 'POST',
-// 					url: 'http://cities.jonkri.se/0.0.0/cities'
-// 				}).then(function sendData(response) {
-// 					alert();
-// 						$rootScope.cities.data.items.push($rootScope.cityName);
-// 					});
-			
-// 			},
-			
-// 		},
-// 		templateUrl: 'partials/jon-cities.html',
-// 		url: '/cities'
-// 	});
-// }),
+// CHARTS
 
-	// CHARTS
+	app.controller("DoughnutCtrl", function ($scope, $rootScope) {
 
-app.controller("DoughnutCtrl", function ($scope, $rootScope) {
+		$scope.labels = [];
+		$scope.data = [];
 
-	$scope.labels = [];
-	$scope.data = [];
-
-	for ( var i = 0; i < $rootScope.cities.length; i++ ) {
-		$scope.labels.push($rootScope.cities[i].name);
-		$scope.data.push($rootScope.cities[i].population);
-	}
-});
+		for ( var i = 0; i < $rootScope.cities.length; i++ ) {
+			$scope.labels.push($rootScope.cities[i].name);
+			$scope.data.push($rootScope.cities[i].population);
+		}
+	});
 
 
 
@@ -109,7 +106,7 @@ app.controller("DoughnutCtrl", function ($scope, $rootScope) {
 
 // DIRECTIVES
 
-app.directive('photoOne', function() {
+	app.directive('photoOne', function() {
 		return {
 			template: '<img />',
 			link: function($scope, element, attrs) {
@@ -130,7 +127,7 @@ app.directive('photoOne', function() {
 		}
 	});
 
-app.directive('photoTwo', function() {
+	app.directive('photoTwo', function() {
 		return {
 			template: '<img />',
 			link: function($scope, element, attrs) {

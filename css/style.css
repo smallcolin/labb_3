@@ -83,6 +83,10 @@ table.city {
 	margin: 20% auto;
 }
 
+.add-city input {
+	margin: 20px 0;
+}
+
 .ng-pristine {
 	background-color: lightgrey;
 }
@@ -98,6 +102,9 @@ table.city {
 	}
 
 .colin-photo {
+	background-color: white;
+	border: 1px solid black;
 	width: 100%;
+	padding: 20px;
+	margin: 20px 0;
 }
-
