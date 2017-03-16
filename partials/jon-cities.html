@@ -9,7 +9,7 @@
 						<th>Population</th>
 					</thead>
 					<tbody>
-						<tr ng-repeat="item in cities">
+						<tr ng-repeat="item in cities track by $index">
 							<td>{{item.name}}</td>
 							<td>{{item.population}}</td>
 						</tr>
@@ -29,7 +29,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-sm-offset-3">
-				<div class="box">
+				<div ng-controller="AddCity" class="box">
 					<h4>Add a new City?</h4>
 					Enter City: <br />
 					<input ng-model="cityName" ng-model="cityName" required /><br />
@@ -37,7 +37,7 @@
 					Enter Population: <br />
 					<input type="number" name="popNumber" ng-model="popNumber" required /><br />
 					<pre>{{popNumber}}</pre>
-					<button type="button" class="btn btn-primary" ng-click="sendData()">Enter</button>
+					<button type="button" class="btn btn-primary" ng-click="sendData()">Post</button>
 				</div>
 			</div>
 		</div>

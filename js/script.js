@@ -23,6 +23,7 @@ app.config(function ($stateProvider, $locationProvider) {
 app.controller('First', function($rootScope) {
 	$rootScope.name = "Colin";
 	$rootScope.age = "37";
+	$rootScope.avatar = 'img/moody.jpg';
 })
 
 
@@ -55,10 +56,17 @@ app.config(function ($stateProvider) {
 // ____________________________________________________________________________________________________
 
 
-// app.controller('AddCity', function($rootScope, $http) {
-// 	$rootScope.cities.data.items.push($rootScope.cityName);
-// 	$rootScope.cities.data.items.push($rootScope.popNumber);
-// });
+app.controller('AddCity', function($scope, $rootScope, $http) {
+	$scope.sendData = function () {
+		
+		// console.log($scope.cityName);
+		// console.log($scope.popNumber);
+		$scope.cities.push($scope.cityName);
+		$scope.cities.push($scope.popNumber);
+		
+	}
+	
+});
 
 // app.config(function ($stateProvider) {
 // 	$stateProvider.state('addCities', {
@@ -112,9 +120,9 @@ app.directive('photoOne', function() {
 				img.css({
 					'background-color':'white',
 					'border':'1px solid black',
-					'width':'500px',
+					'width':'100%',
 					'padding':'20px',
-					'margin':'20px'
+					'margin':'20px 0'
 				});
 			},
 			scope: {},
@@ -133,9 +141,9 @@ app.directive('photoTwo', function() {
 				img.css({
 					'background-color':'white',
 					'border':'1px solid black',
-					'width':'500px',
+					'width':'100%',
 					'padding':'20px',
-					'margin':'20px'
+					'margin':'20px 0'
 				});
 			},
 			scope: {},

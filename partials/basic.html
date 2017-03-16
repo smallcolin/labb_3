@@ -1,39 +1,29 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12 col-sm-4 col-sm-offset-4">
+		<div class="col-xs-12 col-sm-6">
 			<div class="box">
-				<pre>
-					<h4>My name is {{name}}</h4>
-					<p>I am {{age}} years old!</p>	
-				</pre>
+				<h4>My name is {{name}}</h4>
+				<p>I am {{age}} years old!</p>
+				<p>This is me…</p> 
+				<img class="colin-photo" src="{{ avatar }}" />
 			</div>
-			
 		</div>
-	</div>
+	
+		
+		<div class="col-xs-12 col-sm-6">
+			<div class="box">
+				<pre>Want to see a photo of a goat riding a horse?</pre>
+					
+				<button type="button" class="btn btn-warning" ng-click="hidePhotoOne = !hidePhotoOne">Yes, please!</button><br />
 
-</div>
+				<photo-one hide-image="false" ng-show="hidePhotoOne"></photo-one>
+			
+				<pre>How about a nice photo of a beach?</pre>
 
+				<button type="button" class="btn btn-success" ng-click="hidePhotoTwo = !hidePhotoTwo">Yeah, ok then!</button><br />
 
-
-
-
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12">
-			<pre>Want to see a photo of a goat riding a horse?</pre>
-
-				<button type="button" class="btn btn-warning" ng-click="horse()">Yes, please!</button><br />
-
-				<photo-One></photo-One>
-
-				<hr />
-
-			<pre>How about a nice photo of a beach?</pre>
-
-				<button type="button" class="btn btn-default" ng-click="beach()">Yeah, ok then!</button><br />
-
-				<photo-Two></photo-Two>
-
+				<photo-two hide-image="false" ng-show="hidePhotoTwo"></photo-two>
+			</div>
 		</div>
 	</div>
 </div>
