@@ -88,15 +88,44 @@ var app = angular.module('Labb3', ['ui.router', 'chart.js']);
 
 // CHARTS
 
-	app.controller("DoughnutCtrl", function ($scope, $rootScope) {
+	// app.controller("DoughnutCtrl", function ($scope, $rootScope) {
 
+	// 	$scope.labels = [];
+	// 	$scope.data = [];
+
+	// 	for ( var i = 0; i < $rootScope.cities.length; i++ ) {
+	// 		$scope.labels.push($rootScope.cities[i].name);
+	// 		$scope.data.push($rootScope.cities[i].population);
+	// 	}
+	// });
+
+	// app.controller("BarCtrl", function ($scope, $rootScope) {
+
+	// $scope.series = ['Series A'];
+	// $scope.labels = [];
+	// $scope.data = [];
+
+	// 	for ( var i = 0; i < $rootScope.cities.length; i++ ) {
+	// 		$scope.labels.push($rootScope.cities[i].name);
+	// 		$scope.data.push($rootScope.cities[i].population);
+	// 	}
+
+	// });
+
+	app.controller("BaseCtrl", function ($scope, $rootScope) {
 		$scope.labels = [];
 		$scope.data = [];
+		$scope.type = 'polarArea';
 
 		for ( var i = 0; i < $rootScope.cities.length; i++ ) {
 			$scope.labels.push($rootScope.cities[i].name);
 			$scope.data.push($rootScope.cities[i].population);
 		}
+
+		$scope.toggle = function () {
+			$scope.type = $scope.type === 'polarArea' ?
+			'pie' : 'polarArea';
+		};
 	});
 
 

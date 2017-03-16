@@ -3,34 +3,61 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-4">
-				<table class="city">
-					<thead>
-						<th>City</th>
-						<th>Population</th>
-					</thead>
-					<tbody>
-						<tr ng-repeat="item in cities track by $index">
-							<td>{{item.name}}</td>
-							<td>{{item.population}}</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="">
+					<table class="city">
+						<thead>
+							<th>City</th>
+							<th>Population</th>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in cities track by $index">
+								<td>{{item.name}}</td>
+								<td>{{item.population}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
-			<div class="col-xs-12- col-sm-8">
-				<div ng-controller="DoughnutCtrl">
-					<canvas id="doughnut" class="chart chart-doughnut"
-			 			chart-data="data" chart-labels="labels">
-					</canvas>  
+			<div class="col-xs-12 col-sm-8">
+				<div ng-controller="BaseCtrl" class="margin-top">
+					<div class="col-xs-12">
+						<canvas id="base" class="chart-base" chart-type="type" chart-data="data" chart-labels="labels" >
+						</canvas> 
+						<button class="btn btn-danger" ng-click="toggle()">Toggle</button>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- <div class="container">  
+		<div class="row">
+			<div class="col-xs-12">
+				<div ng-controller="BarCtrl">
+					<canvas id="base" class="chart-horizontal-bar" chart-data="data" chart-labels="labels">
+					</canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div ng-controller="DoughnutCtrl">
+				<canvas id="doughnut" class="chart chart-doughnut"
+		 			chart-data="data" chart-labels="labels">
+				</canvas>  
+			</div>
+		</div>
+	</div> -->
+
+	
 	
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-sm-offset-3">
 				<div ng-controller="AddCity" class="box add-city">
-					<h4>Add a new City?</h4>
+					<h4>Add a new place?</h4>
 					Enter City: <br />
 					<input ng-model="cityName" ng-model="cityName" required /><br />
 					Enter Population: <br />

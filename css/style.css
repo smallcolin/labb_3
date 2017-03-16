@@ -25,10 +25,11 @@ img {
 }
 
 #header {
-	background: #4ECDC4; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to left, #4ECDC4 , #556270); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to left, #4ECDC4 , #556270); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #4ECDC4;
+	background: -webkit-linear-gradient(to left, #4ECDC4 , #556270); 
+	background: linear-gradient(to left, #4ECDC4 , #556270);
     color: white;
+    width: 100%;
 }
 
 #wrapper {
@@ -36,6 +37,7 @@ img {
 }
 
 .box {
+	display: block;
 	background-color: #eee;
 	border: 1px solid black;
 	min-height: 20px;
@@ -49,7 +51,6 @@ img {
 
 .active {
 	font-weight: bold;
-	/*font-size: 20px;*/
 	text-transform: uppercase;
 }
 
@@ -66,12 +67,15 @@ ul {
 }
 
 table.city {
+	display: block;
 	background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
 	border: 4px solid white;
+	width: 100%;
 	margin: 30px auto;
 }
 	table.city th {
 		text-align: center;
+		width: 50%;
 		padding: 20px 0 10px;
 		font-weight: bolder;
 	}
@@ -79,8 +83,13 @@ table.city {
 			padding: 10px 40px;
 		}
 
-#doughnut {
+/*#doughnut {
 	margin: 20% auto;
+}*/
+
+#base {
+	display: block;
+	margin: 10% auto;
 }
 
 .add-city input {
