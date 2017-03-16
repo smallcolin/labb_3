@@ -31,8 +31,9 @@
 							<option>-</option>
 							<option>*</option>
 							<option>/</option>
-						</select>
-						<p>= <h3>{{output()}}</h3></p>
+						</select><br />
+						<button type="button" class="btn" ng-click="calcAnswer = !calcAnswer">=</button>
+						<p><h3 ng-show="calcAnswer">{{output()}}</h3></p>
 					</div>
 			
 			</div>
