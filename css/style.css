@@ -32,6 +32,12 @@ img {
     width: 100%;
 }
 
+#footer {
+	height: 70px;
+	line-height: 70px;
+	border-top: 1px solid grey;
+}
+
 #wrapper {
 	margin-top: 40px;
 }
