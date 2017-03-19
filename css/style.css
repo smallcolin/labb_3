@@ -117,3 +117,9 @@ table.city {
 	padding: 20px;
 	margin: 20px 0;
 }
+/*
+@media ( min-width: 768px ) {
+	table.city td {
+			padding: 10px 40px;
+		}
+}*/
