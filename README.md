@@ -5,6 +5,6 @@ Webbutveckling med HTML 5 - Webb2016 - Labb 3 (Colin Sweeney)
 
 After git clone…
 ```
-npm bower install
+bower install
 
 npm install
